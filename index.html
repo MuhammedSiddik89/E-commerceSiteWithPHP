@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+	<head>
+		<title> Johns stationary </title>
+		<meta charset="utf-8">	
+		<link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
+		 <script src="Javascript/jquery-3.3.1.js"></script>
+		<script src="Javascript/javaScript.js">  </script>
+		<script src="Javascript/ajax.js">  </script>
+		<script src="Javascript/Allajax.js">  </script>
+		<script src="Javascript/Navigation.js">  </script>
+		<script src="Javascript/ajaxCart.js">  </script>
+		<script src="Javascript/SlideJava.js">  </script>
+		<script src="Javascript/Navigation.js">  </script>
+		 <script src="Javascript/jquery-3.3.1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" > </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<script>
+	$(document).ready(function(){
+		$("#nav").load("Php/Navigation.php");
+	});
+		
+	</script>
+	
+	<body>
+		<article>
+				<section id = "header1" >		
+					<header>
+						<button onclick="topFunction()" id="topButton" title="Pull page Top">Top</button>
+						<div>
+							<nav id="nav">
+								
+							</nav>
+						</div>	
+					</header>
+				</section>			
+					<div class="leftcontainer">&nbsp;</div>
+					<div class="rightcontainer">&nbsp;</div>
+					
+					<section class = "maincontainer" id="maincontainer2">
+						<section class="ProducDisplaycontainer">
+							<section id="DisplaySlideShow">
+									<div id="slideshow">
+									   <div>
+										 <img src="images/6.png">
+									   </div>
+									   <div>
+										 <img src="images/4.png">
+									   </div>
+									   <div>
+										 <img src="images/1.png">
+									   </div>
+									   <div>
+										 <img src="images/2.jpeg">
+									   </div>
+									</div>
+							</section>
+
+						
+		
+							<div id ="productInformation" > </div>
+							<div>
+								<h1>Display Products</h1>
+								
+									<div id="ProductDisplay">
+									
+									</div>
+							</div>
+
+						</section>	
+						
+					</section>
+					
+		</article>
+		
+	<article id="allforms">
+		<!--login -->
+		<Section class="loginForm" id="lgForm" hidden="hidden" >
+			
+			<form method="post" onsubmit="loginUser(); return false;" action="http://ceto.murdoch.edu.au/~32912826/Assignment2/Php/login.php" id="loginform">
+				<div class="container">	
+						<label><h2  class="Center">User Login</h2></label>
+						<label><b>Username/Email</b>
+						<input type="text" placeholder="Enter Username or Email" id="loginEmail" name = "loginEmail" required />
+						</label>
+						<label><b>Password</b>
+						<input type="password" placeholder="Enter Password"  maxlength = "20" minlength="8" id="loginpass" name = "loginpass" required />
+						</label>
+						<div class="checkbox">
+						   <label>
+						   <input type="checkbox"> Remember me
+						   </label>
+						</div>
+						<div id="lgerror"> </div>
+					   <center><button type="submit" > Sign in</button></center>
+				</div>
+			</form>
+		</Section>
+						
+		<section id="LogoutButton" hidden="hidden">
+			<div id="logoutmsg"> </div>
+					
+			<center><button type="submit" onClick="logout(); return false;" class="cancelbtn" id="logoutbtn" value="logout" >Logout</button></center>
+			
+		</section>
+
+
+		<!-- Edit Customer Details -->				
+		<section id="CustomerAccountEdit" hidden="hidden">	
+			<div class="custEditForm" id="cedForm">
+						  
+				<form  onsubmit="CustomerAccountEdit(); return false;" action="http://ceto.murdoch.edu.au/~32912826/Assignment2/Php/ApplyCustomerEdit.php" method="post" >
+
+					<div class="container">
+						<label><h2  class="Center">Account Edit Form</h2></label>
+						<label><b>Full Name</b>
+						<input type="text" placeholder="Enter Name" name="sName" id="cName" required />
+						</label>
+						<label><b>Date of Birth</b> 
+						<input type="date" class = "sDOB" name="sDOB" id="cDOB" required />
+						</label>
+						<label><b>Gender</b>				
+							<select class="gender" name="gender" id="cGender" >
+								<option value="Male">MALE</option>
+								<option value="Female">FEMALE</option>
+							</select>
+						</label> <br />
+						<label><b>Address</br />
+						<input type="text" placeholder="Enter residence adress" name = "saddr" id ="cAddress" required />
+						</label>
+						<label><b>Suburb</b>
+						<input type="text" placeholder="Enter Suburb" name = "sSuburb" id="cSuburb" required />
+						</label>
+						<label><b>PostCode</b>
+						<input type="number" placeholder="Enter PostCode" name = "sPost" id="cPost" required />
+						</label>
+						<label><b>Phone</b>
+						<input type="number" placeholder="Enter Phone Number" name = "cPhone" id="cPhone" />
+						</label>
+						<label><b>Username</b>
+						<input type="text" placeholder="Enter Username" name = "cusername" id="cUserName" required />
+						</label>
+						<label><b>Email</b>
+						<input type="email" placeholder="Enter Email" name = "sEmail" id="cEmail" required />
+						</label>
+						<label>
+						<input type="hidden"  name = "type" value="customer" id="cType" required />
+						</label>
+						
+						<div id="CustomerAccountEditOutput"> </div>
+						<input class="regSubmit2" type="submit"  value="Apply Edit"/>
+						<label><center><button type="reset"  class="cancelbtn">Cancel</button></center></label>
+					
+					</div>
+				</form>
+			</div>
+		</section>
+		
+		
+		
+
+		<!-- Inquery user Details -->				
+		<section id="CustomerAccountInquery" hidden="hidden">	
+			<div class="custEditForm" id="DisplayCustomerAccountInquery">
+						  
+				<form  onsubmit="CustomerAccountinquery(); return false;" action="http://ceto.murdoch.edu.au/~32912826/Assignment2/Php/ApplyCustomerEdit.php"" method="post" >
+					<div class="container">
+						<label><h2  class="Center">Access to Edit Account</h2></label>
+						<label><b>Username/Email</b>
+						<input type="text" placeholder="Enter Username/Email" name = "customerusername" id="customerUserName" required />
+						</label>
+						<input class="regSubmit2" type="submit"  value="Apply Edit"/>
+						<label><center><button type="reset"  class="cancelbtn">Cancel</button></center></label>
+					
+					</div>
+				</form>
+			</div>
+		</section>
+
+		
+		
+	<!-- Customer Registation Form -->	
+		<section id="CustomerRegistation" hidden="hidden">
+		
+				<div class="signupForm" id ="crgForm">
+							  
+					<form id="registationform"  onsubmit="SignupAccount(); return false;" action="http://ceto.murdoch.edu.au/~32912826/Assignment2/Php/signup.php" method="post">
+
+						<div class="container">
+							<label><h2  class="Center">User Signup</h2></label>
+							<label><b>Full Name</b>
+							<input type="text" placeholder="Enter Name" id = "sName" name="sName" required />
+							</label>
+							<label><b>Date of Birth</b> 
+							<input type="date" class = "sDOB" id="sDOB" name="sDOB" required />
+							</label>
+							<label><b>Gender</b>				
+								<select class="gender" id="gender" name="gender">
+									<option value="Male">MALE</option>
+									<option value="Female">FEMALE</option>
+								</select>
+							</label> <br />
+							<label><b>Address</br />
+							<input type="text" placeholder="Enter residence adress" id="saddr" name = "saddr" required />
+							</label>
+							<label><b>Suburb</b>
+							<input type="text" placeholder="Enter Suburb" id="sSuburb" name = "sSuburb" required />
+							</label>
+							<label><b>PostCode</b>
+							<input type="number" placeholder="Enter PostCode" id="sPost" name = "sPost"required />
+							</label>
+							<label><b>Phone</b>
+							<input type="number" placeholder="Enter Phone Number" id="c_Phone"name = "cPhone" />
+							</label>
+							<label><b>Username</b>
+							<input type="text" placeholder="Enter Username" id="cusername" name = "cusername" required />
+							</label>
+							<label><b>Email</b>
+							<input type="email" placeholder="Enter Email" id="sEmail" name = "sEmail" required />
+							</label>
+							<label><b>Password</b>
+							<input type="password" placeholder="Enter Password"  maxlength = "20" minlength="8"  id="spass" name = "spass" required />
+							</label>
+							<label>
+							<input type="hidden" id="type" name = "type" value="customer" required />
+							</label>
+							
+							<div id="CustomerAccountverification"> </div>
+							<center> <input class="regSubmit" type="submit" value="Register"/> </center>
+	
+						
+						</div>
+					</form>
+				</div>
+		</section>
+		
+		
+		<!-- Staff Registation Form -->	
+		<section id="StaffRegistation" hidden="hidden">
+		
+			<div class="signupForm" id="srgForm">
+						  
+				<form id="staffRegistationform" onsubmit="staffSignupAccount(); return false;" action="http://ceto.murdoch.edu.au/~32912826/Assignment2/Php/staffSignup.php" method="post">
+
+					<div class="container">
+						<label><h2 class="Center">Staff Signup</h2></label>
+						<label><b>Full Name</b>
+						<input type="text" placeholder="Enter Name" id="staffName" name="staffName" required />
+						 </label>
+						<label><b>Date of Birth</b> 
+						<input type="date" class = "sDOB" name="staffDOB" id="staffDOB" required />
+						</label>
+						<label><b>Gender</b>				
+							<select class="gender" name="staffgender" id="staffgender" >
+								<option value="Male">MALE</option>
+								<option value="Female">FEMALE</option>
+							</select>
+						</label> <br />
+						<label><b>Address</br />
+						<input type="text" placeholder="Enter residence adress" id="staffaddr" name = "staffaddr" required />
+						</label>
+						<label><b>Suburb</b>
+						<input type="text" placeholder="Enter Suburb" name = "staffSuburb" id="staffSuburb" required />
+						</label>
+						<label><b>PostCode</b>
+						<input type="number" placeholder="Enter PostCode" name = "staffPost" id="staffPost" required />
+						</label>
+						<label><b>Phone</b>
+						<input type="number" placeholder="Enter Phone Number" name = "staffphone" id="staffphone" />
+						</label>
+						<label><b>Username</b>
+						<input type="text" placeholder="Enter Username" name = "staffusername"  id="staffusername" required />
+						</label>
+						<label><b>Email</b>
+						<input type="email" placeholder="Enter Email" name = "staffEmail" id="staffEmail" required />
+						</label>
+						<label><b>Password</b>
+						<input type="password" placeholder="Enter Password"  maxlength = "20" minlength="8"  name = "staffpass" id="staffpass"  required />
+						</label>
+						<label>
+						<input type="hidden"  name = "type" id="stafftype" value="staff" required />
+						</label>
+									
+						<div id="staffregistationOutput"> </div>
+					<center><input class="regSubmit" type="submit"  value="Register"/></center>
+						
+					
+					</div>
+				</form>
+			</div>
+		</section>
+		
+		
+	</article>	
+			
+
+			
+		<Section id="DisplayCart" hidden="hidden">	
+			
+			<h3>Order Details</h3>
+			<div>
+				
+				<div id="cartOutput">
+					
+					<center><h3> Your Shopping Cart is Empty, Please buy Something from the index Page </h3> </center>
+				
+				</div>
+				
+			</div>
+			
+		</section>
+	
+	
+	<section id="AboutUs" hidden="hidden">
+			<h1>ABOUT US</h1>
+			<p>
+			<img src ="images/mypic.jpeg" class= "picture" id="picture" alt="internetpic"/>
+			 Johns stationary, an Australian leading Stationary chain headquartered in Perth, that helps students to get the best stationary resources available to them, by offering vast amount of products in making the student life easier and providing special discounts to the partner schools and unviersities. We are an Australian based company and we belive to give something to the society as in resonable price to help the community build more digitalized and more brighter, Education is the key to all door of success so we believe that unless all resources are available to the student puting the right education in the correct measure is not possible. Our online services comprise of Online Webstore and app for ordering our products. John smith's father owned a corner stationary/newsagent store in murdoch, when john took over the store he took it online to expand the business. His father had a goal to provide cheap and decent stationary to students on a budget, a mission that is still the goal as the store moves into the digital era. The store is known for have a range of stationary basics that are cheap and of good quality. The Stationary chain has went online in Jan 2018 and has has got a great response in gaining its market.
+			 As time went by we continued to improve our products and maintained our reputation. The main aim of our company to produces products which benefit people and make student/official lives easier.
+			 </p>
+			
+			<h2>CORPORATE GOAL</h2>  
+			<p>
+			John's slogan, "Free Will to be Educated" is used in advertising campaigns, and is still closely associated with Johns. We also use the common "Back to school" slogans during the reopening of the schools after vacation. David our marketing head is well known for his effective advertisement and marketing for all Johns products, after all, what good is a product if people don't know about it, and how much they can save compare to other compitators!
+			</p>
+			
+			<h2>OUR STORES</h2>
+        	<p>
+			Johns has 100 retail stores as of June 2018 and an online store available. Each store is designed keeping in mind its location for easy access for the instituations nearby. The Johns store in Melborne, Quensland was the first to after John take over the family business. Johns makes sure that all its employees are satisfied with what they earn for the job they are entitled to.
+			</p>
+			
+        	<h2>CHARITABLE CAUSES</h2>
+        	<p>
+			As of 2018, Johns is a partner of Red Cross Charity. In December 2017, John's contributions to the charitable reached $2 million, making Johns one of the top 10 partner of Red Cross Charity.
+			</p>
+			
+        	<h2>CUSTOMER PRIVACY</h2>
+        	<p>
+			Johns stationary has made it clear in its privacy policy that consumer data and his/her privacy depends solely on the individual. Johns has no control over the user's personal data for online shopping. Johns does so because here at Johns customer privacy is at its best and no one except the user has rights over his/her account data.
+			</p>
+			
+        	<h2>WORKPLACE CULTURE</h2> 
+ 			<p>
+			Johns Stationary is one of the several highly successful company in Australia. We at Johns like to keep everything simple and intuitive.  Over the years Johns has maintained its reputation for bringing the best out of its many talented employees. Everyone at Johns believes in team work since many minds together are better than one for giving out best products and services to our clients. Although we like to keep everything simple, we have a strict policy for accountability. At Johns we have one directly responsible person for each store and if something goes wrong in that specific area the team and its head are held responsible for it, but after such complications, everyone works together to improve on what went wrong and learn from our mistakes to maintain our reputation.
+			</p>
+			
+ 			<h2>CUSTOMER SERVICE</h2>
+        	<p>
+			We at Johns Stationary like to keep everything unique, this also applies to our retail stores, we have designed our stores in such a fashion which reflects our company brand. The employees we appoint at our stores go through a 1-month training program so that they are familiar with how we work at Johns Stationary. We also work towards keeping our reputation of the quality of customer service at its best.
+			</p>
+			
+        	<h2>Rebranding statergy</h2>
+        	<p>
+			The company rebrands and marketing strategies enable it to execute massive product launches without having to maintain large inventories. We have about 500 employees working in various remote locations. Our Headquarter is in Perth; this is also where product qualities go through testing before they are shipped out to all our stores.
+			</p>  
+            
+    </section>
+	
+	
+	<section id="ContactUs" hidden="hidden">
+			<h1>Contact US</h1>
+				<img src ="images/map.jpeg" class= "picture" id="picture" alt="internetpic"/>
+				<p>Head Office Dubai Downtown: <br />
+					Johns Stationary Perth Arena <br />
+					Joldalup <br />
+					Perth, WA<br />
+					<a href="mailto:siddikahmed9999@gmail.com">Contact by Email</a><br />
+					<a href="tel:+61470345062">Contact by Phone</a><br />
+					Perth 6122 <br />
+				</p>
+
+				<p>	South East Suburbs - Marina<br />
+					Murdoch<br />
+					13 Industrial Area 14/B<br />
+					Murdoch, WA<br />
+					<a href="mailto:siddikahmed9@gmail.com">Contact by Email</a><br />
+					<a href="tel:+61470345062">Contact by Phone</a><br />
+					PERTH 6150<br />
+				</p>
+		
+
+				<p>	Postal Address:<br />
+					Perth<br />
+					POSTCODE 6000<br />
+					Love Park Downs, AU<br />
+					<a href="mailto:siddikahmed8@gmail.com">Contact by Email</a><br />
+					<a href="tel:+61470345062">Contact by Phone</a><br />
+					Perth 6000<br />
+	
+	</section>
+	
+	<section id="UserGuide"  hidden="hidden">
+		<h1>User Guide</h1>
+		<p>
+		In order to browse through our vast range of products, Please register as a user or Login in if you are already a member by clicking on the Account icon in the right of navigation bar. Upon creating your account, you may browse the products of your choice by selecting appropriate category of products from the down down menu of "Products Categories" on the navigation panel or by searching for a particular product using the search bar in the upper right corner. After finding the product(s) of your choice, you may add it to your cart by clicking the button "Add to Cart" next to the item of your choice. Once satisfied with your selections, click on the shopping cart. Once you Verify your choice of products, you can either remove product from the cart by clicking the remove button next to each item on the table or even continue shopping going back to the index/products page. Once finalised, click on checkout and confirm your order to have it delivered to you shortly.
+		</p>		
+	</section>
+	
+	<section id="frequestQuestion" hidden="hidden">
+		<p>
+			<h1>Frequently Asked Questions </h1>
+			<br />How to find something quickly in the site?<br />
+				Answer: Please do use our searching tool if you already know what you are looking for.<br />
+				Else try using our category selector to find the specific category of product 
+				you are looking to find out.<br />
+			
+			What is the best thing about this stationary chain?<br />
+			Answer: We offer everything is best price and best quality all over australia.<br />
+			
+			What is the worst thing about this stationary chain?<br />
+			Answer: We dont cheat ur clients <br />
+			
+			What is the cheapest thing in this website?<br />
+			Answer: Pencil led <br />
+			
+			Which is the most expensive product in this site?<br /> 
+			Answer: Free thinking power will <br />
+			
+			Why does the company says it has the best price and the best product <br />
+			Answer: We at Johns we offer all product in our own branding and get bulk 
+			of product from the reputated manufactrer at the least possible price. 
+			<br />
+			
+		</p>
+	</section>
+	
+	
+	<section id="Payment" hidden="hidden" >
+
+		<div id="Paymentcontainer">
+		
+			<form onsubmit="PayBill(); return false;">
+				  
+		
+				<div class="medium">
+						<h3>Billing Address</h3>
+						<label>Full Name</label>
+						<input type="text" name="fullName" placeholder="Mr Hong" required />
+						<label>Email</label>
+						<input type="text"name="email" placeholder="X.Hong@example.com" required />
+						<label>Address</label>
+						<input type="text"  name="address" placeholder="Murdoch South Street" required />
+						<label>City</label>
+						<input type="text" name="city" placeholder="Perth" required />
+
+					<div class="row">
+					  <div class="medium">
+						<label>State</label>
+						<input type="text" id="state" name="state" placeholder="WA" required />
+					  </div>
+					  <div class="medium">
+						<label>Zip</label>
+						<input type="text" id="zip" name="zip" placeholder="6150" />
+					  </div>
+					</div>
+
+					<div class="medium">
+						<h3>Payment</h3>
+						<label for="fname">Accepted Cards</label>
+						<label>Name on Card</label>
+						<input type="text" id="cname" name="cardname" placeholder="Hong" required />
+						<label>Credit card number</label>
+						<input type="text" id="cnum" name="cardnumber" placeholder="1111-2222-3333-4444" required />
+						<label>Exp Month</label>
+						<input type="text" id="expirymonth" name="expirymonth" placeholder="April" required />
+						<div class="row">
+						  <div class="medium">
+							<label>Exp Year</label>
+							<input type="text" name="expiryyear" placeholder="2022" required />
+						  </div>
+						  <div class="medium">
+							<label>CVV</label>
+							<input type="text" id="cvv" name="cvv" placeholder="995" required />
+						  </div>
+						</div>
+					</div>
+					  
+				</div>
+					<label>
+					  <input type="checkbox" checked="checked" />Shipping address same as billing 
+					</label>
+					<a id="back"  href="index.html#DisplayCart" value="Back to Cart">Back to Cart</a>
+					<label><center><button type="submit"  class="cancelbtn">Make Payment</button></center></label>
+					
+			</form>
+			
+		</div>	
+	</section>
+	
+	
+	
+	
+	
+	
+	
+	</body>
+	
+</html>
